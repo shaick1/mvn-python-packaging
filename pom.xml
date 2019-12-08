@@ -141,32 +141,13 @@ python installed, if they don't need python bindings.
               <goal>exec</goal>
             </goals>
             <configuration>
-              <executable>protoc</executable>
+              <executable>python</executable>
               <workingDirectory>${basedir}</workingDirectory>
               <arguments>
-                <argument>--proto_path=${basedir}/src/main/resources</argument>
-                <argument>--java_out=${project.build.directory}/generated-sources/java</argument>
-                <argument>--python_out=${project.build.directory}/generated-sources/python/${python_package}</argument>
-                <argument>${basedir}/src/main/resources/*.proto</argument>
+                <argument>${basedir}/src/main/resources/mytest.py</argument>
               </arguments>
             </configuration>
           </execution>
-          <execution>
-            <id>generate-package</id>
-            <phase>${python_compile_phase}</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>python</executable>
-              <workingDirectory>${project.build.directory}/generated-sources/python</workingDirectory>
-              <arguments>
-                <argument>setup.py</argument>
-                <argument>sdist</argument>
-              </arguments>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
     <resources>
