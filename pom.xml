@@ -148,6 +148,7 @@ python installed, if they don't need python bindings.
               </arguments>
             </configuration>
           </execution>
+	<executions>
       </plugin>
     </plugins>
     <resources>
