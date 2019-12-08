@@ -74,7 +74,7 @@ python installed, if they don't need python bindings.
         </configuration>
       </plugin>
       <plugin>
-        
+
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
         <version>1.8</version>
@@ -132,22 +132,6 @@ python installed, if they don't need python bindings.
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.1</version>
         <executions>
-	 <execution>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <executable>pip</executable>
-              <workingDirectory>${basedir}</workingDirectory>
-              <arguments>
-		<argument>install</argument>
-		<argument>-r</argument>
-                <argument>${basedir}/src/main/resources/requirements.txt</argument>
-              </arguments>
-            </configuration>
-          </execution>
-		
           <execution>
             <id>generate-bindings</id>
             <phase>generate-sources</phase>
@@ -161,7 +145,24 @@ python installed, if they don't need python bindings.
                 <argument>${basedir}/src/main/resources/mytest.py</argument>
               </arguments>
             </configuration>
-          </execution></executions>
+          </execution>
+
+             <execution>
+            <id>generate-bindings</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>python</executable>
+              <workingDirectory>${basedir}</workingDirectory>
+              <arguments>
+                <argument>${basedir}/src/main/resources/mytest.py</argument>
+              </arguments>
+            </configuration>
+          </execution>
+
+        </executions>
       </plugin>
     </plugins>
     <resources>
