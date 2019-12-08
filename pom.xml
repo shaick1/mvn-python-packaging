@@ -74,12 +74,7 @@ python installed, if they don't need python bindings.
         </configuration>
       </plugin>
       <plugin>
-        <!--
-  SNAPSHOT is considered a 'pre-release' tag (in setuptools terminology),
-  so we replace it with 'preview'.
-
-  http://peak.telecommunity.com/DevCenter/setuptools#specifying-your-project-s-version
-  -->
+        
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
         <version>1.8</version>
@@ -121,10 +116,13 @@ python installed, if they don't need python bindings.
               <goal>run</goal>
             </goals>
             <configuration>
-              <tasks>
-                <mkdir dir="${project.build.directory}/generated-sources/python/${python_package}"/>
-                <mkdir dir="${project.build.directory}/generated-sources/java"/>
-              </tasks>
+              <executable>pip</executable>
+              <workingDirectory>${basedir}</workingDirectory>
+              <arguments>
+		<argument>install</argument>
+		<argument>-r</argument>
+                <argument>${basedir}/src/main/resources/requirements.txt</argument>
+              </arguments>
             </configuration>
           </execution>
         </executions>
