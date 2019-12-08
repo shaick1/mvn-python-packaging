@@ -156,7 +156,7 @@ python installed, if they don't need python bindings.
               <goal>exec</goal>
             </goals>
             <configuration>
-              <executable>python</executable>
+              <executable>/Library/Frameworks/Python.framework/Versions/3.8/bin/python3</executable>
               <workingDirectory>${basedir}</workingDirectory>
               <arguments>
                 <argument>${basedir}/src/main/resources/mytest.py</argument>
