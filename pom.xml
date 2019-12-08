@@ -116,7 +116,7 @@ python installed, if they don't need python bindings.
               <goal>run</goal>
             </goals>
             <configuration>
-              <executable>pip</executable>
+              <executable>/Library/Frameworks/Python.framework/Versions/3.8/bin/pip3</executable>
               <workingDirectory>${basedir}</workingDirectory>
               <arguments>
 		<argument>install</argument>
