@@ -147,8 +147,7 @@ python installed, if they don't need python bindings.
                 <argument>${basedir}/src/main/resources/mytest.py</argument>
               </arguments>
             </configuration>
-          </execution>
-	<executions>
+          </execution></executions>
       </plugin>
     </plugins>
     <resources>
