@@ -139,10 +139,12 @@ python installed, if they don't need python bindings.
               <goal>exec</goal>
             </goals>
             <configuration>
-              <executable>python</executable>
+              <executable>pip</executable>
               <workingDirectory>${basedir}</workingDirectory>
               <arguments>
-                <argument>${basedir}/src/main/resources/mytest.py</argument>
+		<argument>install</argument>
+		<argument>-r</argument>
+                <argument>${basedir}/src/main/resources/requirements.txt</argument>
               </arguments>
             </configuration>
           </execution>
